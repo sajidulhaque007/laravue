@@ -1,8 +1,10 @@
+import { createRouter, createWebHistory } from 'vue-router'
+
 import AllProduct from './components/AllProduct.vue';
 import CreateProduct from './components/CreateProduct.vue';
 import EditProduct from './components/EditProduct.vue';
 
-export const routes = [
+const routes = [
     {
         name: 'home',
         path: '/',
@@ -19,3 +21,13 @@ export const routes = [
         component: EditProduct
     }
 ];
+
+
+const router = createRouter({
+    mode: 'history',
+    linkActiveClass: "active",
+    history: createWebHistory(), 
+    routes 
+});
+
+export default router

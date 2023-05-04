@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import axios from 'axios';
     export default {
         data() {
             return {
@@ -28,7 +29,7 @@
         },
         methods: {
             addProduct() {
-                this.axios
+                axios
                     .post('http://localhost:8000/api/products', this.product)
                     .then(response => (
                         this.$router.push({ name: 'home' })

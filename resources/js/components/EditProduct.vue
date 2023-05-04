@@ -20,6 +20,7 @@
 </template>
 
 <script>
+    import axios from 'axios';
     export default {
         data() {
             return {
@@ -27,7 +28,7 @@
             }
         },
         created() {
-            this.axios
+            axios
                 .get(`http://localhost:8000/api/products/${this.$route.params.id}`)
                 .then((res) => {
                     this.product = res.data;
@@ -35,7 +36,7 @@
         },
         methods: {
             updateProduct() {
-                this.axios
+                axios
                     .patch(`http://localhost:8000/api/products/${this.$route.params.id}`, this.product)
                     .then((res) => {
                         this.$router.push({ name: 'home' });
